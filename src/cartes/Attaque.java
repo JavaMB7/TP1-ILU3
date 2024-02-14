@@ -2,9 +2,27 @@ package cartes;
 
 public class Attaque extends Bataille {
 
-	public Attaque(int numero, Type type) {
-		super(numero, type);
-		// TODO Auto-generated constructor stub
+	public Attaque(int nombre, Type type) {
+		super(nombre, type);
+	}
+	
+	public String toString() {
+		switch(type) {
+		case FEU:
+			return "Feu Rouge";
+		
+		case ACCIDENT:
+			return "Accident";
+			
+		case ESSENCE:
+			return "Panne d'essence";
+		
+		case CREVAISON:
+			return "Crevaison";
+			
+		default:
+			return "Attaque";
+		}
 	}
 
 }

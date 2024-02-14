@@ -2,9 +2,9 @@ package cartes;
 
 public abstract class Carte {
 	
-	private int numero;
+	private int nombre;
 	
-	public Carte(int numero) {
-		this.numero = numero;
+	public Carte(int nombre) {
+		this.nombre = nombre;
 	}
 }

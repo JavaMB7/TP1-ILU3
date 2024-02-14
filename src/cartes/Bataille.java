@@ -2,8 +2,8 @@ package cartes;
 
 public abstract class Bataille extends Probleme {
 
-	public Bataille(int numero, Type type) {
-		super(numero, type);
+	public Bataille(int nombre, Type type) {
+		super(nombre, type);
 	}
 
 }

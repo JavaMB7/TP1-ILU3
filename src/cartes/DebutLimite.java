@@ -1,9 +1,9 @@
 package cartes;
 
-public class DebutLimite extends Carte {
+public class DebutLimite extends Limite {
 
-	public DebutLimite(int numero) {
-		super(numero);
+	public DebutLimite(int nombre) {
+		super(nombre);
 	}
 
 }

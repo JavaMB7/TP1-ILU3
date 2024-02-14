@@ -2,8 +2,11 @@ package cartes;
 
 public abstract class Limite extends Carte {
 
-	public Limite(int numero) {
-		super(numero);
+	public Limite(int nombre) {
+		super(nombre);
 	}
 
+	public String toString() {
+		return "Limite 50km/h";
+	}
 }
