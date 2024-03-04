@@ -37,11 +37,16 @@ public class testFonctionnels {
 		//	sabot.piocher();
 		//}
 		Iterator<Carte> it = sabot.iterator();
+		/*for(int i =0; i<c.length;i++) {
+			it.next();
+			it.remove();
+		}*/
+		
 		for(int i =0; i<c.length;i++) {
 			it.next();
 			it.remove();
+			sabot.piocher();
 		}
-		
 	}
 }
  

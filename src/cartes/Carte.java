@@ -11,5 +11,13 @@ public abstract class Carte {
 	public int getNombre() {
 		return nombre;
 	}
+	
+	public boolean equals(Object obj) {
+		if(obj != null && obj.getClass() == getClass()) {
+			Carte c = (Carte) obj;
+			return c.equals(obj);
+		}
+		return false;
+	}
 
 }

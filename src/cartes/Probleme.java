@@ -14,4 +14,11 @@ public class Probleme extends Carte {
 		return type;
 	}
 	
+	public boolean equals(Object obj) {
+		if(obj != null && obj.getClass() == getClass()) {
+			Probleme p = (Probleme) obj;
+			return p.equals(obj);
+		}
+		return false;
+	}
 }

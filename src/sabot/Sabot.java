@@ -1,5 +1,6 @@
 package sabot;
 
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -10,6 +11,7 @@ public class Sabot implements Iterable<Carte> {
 	private int nbCartes;
 	private static final int NB_CARTES_MAX = 110;
 	private int indiceIterateur = 0;
+	private int nombreOperations;
 
 	public Sabot(int nbCarte) {
 		if(nbCarte > NB_CARTES_MAX) {
@@ -35,6 +37,7 @@ public class Sabot implements Iterable<Carte> {
 		}
 		this.cartes[nbCartes] = carte;
 		this.nbCartes += 1;
+		nombreOperations ++;
 	}
 
 	public void ajouterFamilleCarte(Carte[] cartes) throws IllegalStateException {
@@ -59,6 +62,7 @@ public class Sabot implements Iterable<Carte> {
 
 	private class Iterateur implements Iterator<Carte> {
 		private boolean nextEffectue = false;
+		private int nombreOperationsReference = nombreOperations;
 
 		@Override
 		public boolean hasNext() {
@@ -67,6 +71,7 @@ public class Sabot implements Iterable<Carte> {
 
 		@Override
 		public Carte next() {
+			verificationConcurrence();
 			if (hasNext()) {
 				Carte carte = cartes[indiceIterateur];
 				indiceIterateur++;
@@ -75,7 +80,6 @@ public class Sabot implements Iterable<Carte> {
 			} else {
 				throw new NoSuchElementException();
 			}
-
 		}
 
 		@Override
@@ -89,9 +93,16 @@ public class Sabot implements Iterable<Carte> {
 			nextEffectue = false;
 			indiceIterateur--; // indice du prochain élément à visiter (s’il existe)
 			nbCartes--;
+			nombreOperations ++;
+			nombreOperationsReference ++;
 		}
 		
+		private void verificationConcurrence(){
+			 if (nombreOperations != nombreOperationsReference)
+			 throw new ConcurrentModificationException();
+		}
 
+		
 	}
 
 }

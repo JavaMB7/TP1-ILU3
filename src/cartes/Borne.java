@@ -13,4 +13,11 @@ public class Borne extends Carte {
 		return this.km + " km";
 	}
 
+	public boolean equals(Object obj) {
+		if(obj != null && obj.getClass() == getClass()) {
+			Borne b = (Borne) obj;
+			return b.equals(obj);
+		}
+		return false;
+	}
 }
