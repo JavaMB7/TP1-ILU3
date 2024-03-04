@@ -7,7 +7,7 @@ public class Attaque extends Bataille {
 	}
 	
 	public String toString() {
-		switch(type) {
+		switch(getType()) {
 		case FEU:
 			return "Feu Rouge";
 		

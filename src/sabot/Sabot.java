@@ -5,15 +5,25 @@ import java.util.NoSuchElementException;
 
 import cartes.Carte;
 
-public class Sabot<C extends Carte> implements Iterable<C> {
+public class Sabot implements Iterable<Carte> {
 	private Carte[] cartes;
 	private int nbCartes;
 	private static final int NB_CARTES_MAX = 110;
+	private int indiceIterateur = 0;
 
-	public Sabot() {
-		this.cartes = new Carte[NB_CARTES_MAX];
+	public Sabot(int nbCarte) {
+		if(nbCarte > NB_CARTES_MAX) {
+			throw new IllegalArgumentException("nbCarte > NB_CARTE_MAX");
+		}
+		this.cartes = new Carte[nbCarte];
 		this.nbCartes = 0;
 	}
+
+	
+	public int getNbCartes() {
+		return nbCartes;
+	}
+
 
 	public boolean estVide() {
 		return nbCartes == 0;
@@ -34,13 +44,20 @@ public class Sabot<C extends Carte> implements Iterable<C> {
 			}
 		}
 	}
+	
+	public Carte piocher() {
+		Iterator<Carte> it = iterator();
+		Carte c = it.next();
+		it.remove();
+		return c;
+		
+	}
 
-	public Iterator<C> iterator() {
+	public Iterator<Carte> iterator() {
 		return new Iterateur();
 	}
 
-	private class Iterateur implements Iterator<C> {
-		private int indiceIterateur = 0;
+	private class Iterateur implements Iterator<Carte> {
 		private boolean nextEffectue = false;
 
 		@Override
@@ -49,12 +66,12 @@ public class Sabot<C extends Carte> implements Iterable<C> {
 		}
 
 		@Override
-		public C next() {
+		public Carte next() {
 			if (hasNext()) {
 				Carte carte = cartes[indiceIterateur];
 				indiceIterateur++;
 				nextEffectue = true;
-				return (C) carte;
+				return (Carte) carte;
 			} else {
 				throw new NoSuchElementException();
 			}
@@ -73,6 +90,7 @@ public class Sabot<C extends Carte> implements Iterable<C> {
 			indiceIterateur--; // indice du prochain élément à visiter (s’il existe)
 			nbCartes--;
 		}
+		
 
 	}
 

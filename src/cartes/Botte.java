@@ -7,7 +7,7 @@ public class Botte extends Probleme {
 	}
 
 	public String toString() {
-		switch(type) {
+		switch(getType()) {
 		case FEU:
 			return "Camion Prioritaire";
 		

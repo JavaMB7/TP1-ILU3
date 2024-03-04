@@ -7,7 +7,7 @@ public class Parade extends Bataille {
 	}
 
 	public String toString() {
-		switch(type) {
+		switch(getType()) {
 		case FEU:
 			return "Feu Vert";
 		
