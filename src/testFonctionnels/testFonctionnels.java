@@ -1,5 +1,7 @@
 package testFonctionnels;
 
+import java.util.Iterator;
+
 import cartes.Attaque;
 import cartes.Bataille;
 import cartes.Borne;
@@ -31,8 +33,13 @@ public class testFonctionnels {
 			c[i]=bt;
 		}
 		sabot.ajouterFamilleCarte(c);
-		for(int i = 0; i<sabot.getNbCartes(); i++) {
-			sabot.piocher();
+		//for(int i = 0; i<sabot.getNbCartes(); i++) {
+		//	sabot.piocher();
+		//}
+		Iterator<Carte> it = sabot.iterator();
+		for(int i =0; i<c.length;i++) {
+			it.next();
+			it.remove();
 		}
 		
 	}
