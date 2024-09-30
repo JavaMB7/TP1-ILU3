@@ -2,26 +2,14 @@ package cartes;
 
 public class Botte extends Probleme {
 
-	public Botte(int nombre, Type type) {
-		super(nombre, type);
+	public Botte(Type type) {
+		super(type);
 	}
 
+	@Override
 	public String toString() {
-		switch(getType()) {
-		case FEU:
-			return "Camion Prioritaire";
-		
-		case ACCIDENT:
-			return "As du volant";
-			
-		case ESSENCE:
-			return "Camion citerne";
-		
-		case CREVAISON:
-			return "Increvable";
-			
-		default:
-			return "Joker";
-		}
+		Type type = getType();
+		return type.getAttaque();
 	}
+
 }

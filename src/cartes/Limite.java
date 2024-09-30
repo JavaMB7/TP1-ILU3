@@ -2,11 +2,8 @@ package cartes;
 
 public abstract class Limite extends Carte {
 
-	public Limite(int nombre) {
-		super(nombre);
+	public Limite() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public String toString() {
-		return "Limite 50km/h";
-	}
 }
