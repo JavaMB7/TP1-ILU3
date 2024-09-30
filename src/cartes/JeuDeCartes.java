@@ -21,7 +21,7 @@ public class JeuDeCartes {
 		new Configuration(new Botte(Type.CREVAISON), 1),
 		new Configuration(new Botte(Type.ESSENCE), 1),
 		new Configuration(new DebutLimite(), 4),
-		new Configuration(new FinLimite(), 1)
+		new Configuration(new FinLimite(), 6)
 	};
 	
 	private static class Configuration {
@@ -48,9 +48,27 @@ public class JeuDeCartes {
 		StringBuilder string = new StringBuilder();
 		for(int i = 0; i<typesDeCartes.length; i++) {
 			string.append(typesDeCartes[i].nbExemplaires + typesDeCartes[i].getCarte().toString());
+			string.append("\n");
 		}
 		return string.toString();
 	}
 	
-	
+	public Carte[] donnerCartes() {
+		
+		int count = 0;
+		for(int i = 0; i<typesDeCartes.length; i++) {
+			count += typesDeCartes[i].nbExemplaires;
+		}
+		
+		Carte[] cartes = new Carte[count];
+		int c = 0;
+		for(int i = 0; i<typesDeCartes.length; i++) {
+			for(int j=0; j<typesDeCartes[i].nbExemplaires;j++) {
+				cartes[c] = typesDeCartes[i].carte;
+				c ++;
+			}
+		}
+		
+		return cartes;
+	}
 }

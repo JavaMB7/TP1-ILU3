@@ -6,7 +6,11 @@ public class TestJeuDeCartes {
 
 	public static void main(String[] args) {
 		JeuDeCartes jdc = new JeuDeCartes();
-		jdc.affichageJeuDeCartes();
+		System.out.println(jdc.affichageJeuDeCartes());
+		Carte[] c = jdc.donnerCartes();
+		for(int i =0; i<c.length; i++) {
+			System.out.println(c[i]);
+		}
 	}
 
 }
