@@ -61,8 +61,7 @@ public class JeuDeCartes {
 		}
 		
 		Carte[] cartes = new Carte[count];
-		int c = 0;
-		for(int i = 0; i<typesDeCartes.length; i++) {
+		for(int i = 0, c = 0; i<typesDeCartes.length; i++) {
 			for(int j=0; j<typesDeCartes[i].nbExemplaires;j++) {
 				cartes[c] = typesDeCartes[i].carte;
 				c ++;
@@ -71,4 +70,26 @@ public class JeuDeCartes {
 		
 		return cartes;
 	}
+	
+	public boolean checkCount() {
+		int countParade = 0;
+		int countAttaque = 0;
+		int countBorne = 0;
+		int countBotte =0;
+		for(Carte carte : donnerCartes()) {
+			if(carte instanceof Attaque || carte instanceof DebutLimite) {
+				countAttaque++;
+			}else if (carte instanceof Parade || carte instanceof FinLimite) {
+				countParade++;
+			}else if(carte instanceof Borne) {
+				countBorne++;
+			}else if(carte instanceof Botte) {
+				countBotte++;
+			}
+		}
+		return countAttaque==18 && countParade==38 && countBorne==46 && countBotte==4;
+	}
+
+
+
 }
