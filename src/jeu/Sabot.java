@@ -32,9 +32,9 @@ public class Sabot implements Iterable<Carte> {
 
 	public Carte piocher() {
 		Iterateur it = new Iterateur();
-		Carte c = it.next();
+		Carte carte = it.next();
 		it.remove();
-		return c;
+		return carte;
 	}
 
 	public Iterator<Carte> iterator() {

@@ -8,6 +8,8 @@ import java.util.Random;
 
 public class GestionCartes {
 
+	private GestionCartes() {
+	}
 	
 	public static <T> T extraire(List<T> liste) {
 			if (liste.isEmpty()) {

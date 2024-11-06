@@ -11,20 +11,6 @@ public class Attaque extends Bataille {
 		Type type = getType();
 		return type.getAttaque();
 	}
-	
-	
-	
-	@Override
-	public boolean equals(Object obj) {
-		 if(obj instanceof Attaque attaque){
-			 return getType() == attaque.getType();
-		 }
-		 return false;
-	}
-	
-	@Override
-	public int hashCode() {
-	    return getType() != null ? getType().hashCode() : 0;
-	}
+
 
 }
